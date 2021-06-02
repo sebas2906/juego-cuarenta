@@ -1,0 +1,156 @@
+<!-- <div *ngIf="multijugador" class="row">
+    <div class="col">
+        <app-selector-jugador (jugadorSeleccionado)="setJugador2($event)"></app-selector-jugador>
+    </div>
+</div> -->
+
+
+<div class="row justify-content-center center position">
+    <div class="col-auto animate__animated animate__bounceIn">
+
+        <div class="card mesa">
+            <div class="card-body">
+
+                <div *ngIf="multijugador" class="row">
+                    <div class="col">
+                        <app-selector-jugador [multijugadorService]="multijugadorService" (jugadorSeleccionado)="setJugador2($event)"></app-selector-jugador>
+                    </div>
+                </div>
+                <!--Contrincante-->
+                <div class="row arriba g-2">
+                    <div *ngFor="let carta of manos[1]" class="col">
+                        <div class="card carta">
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <i class="fas fa-stroopwafel fa-2x center"></i>
+                                </h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--Llevadas del Contrincante-->
+                <div *ngFor="let carta of llevadasPC;let i=index" class="row llevadasPC" [ngStyle]="llevadasPC[i]">
+                    <div class="col">
+                        <div class="card carta">
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <i class="fas fa-stroopwafel fa-2x center"></i>
+                                </h5>
+                            </div>
+                        </div>
+                        <!-- <img class="mini" [src]="carta.image"> -->
+                    </div>
+                </div>
+                <!--Puntos del PC-->
+                <div *ngFor="let carta of cartas_puntosPC;let i=index" class="row puntosPC" [ngStyle]="cartas_puntosPC[i]">
+                    <div class="col">
+                        <img *ngIf="!carta.volteado" class="carta sinFondo" [src]="carta.image">
+                        <div *ngIf="carta.volteado" class="card carta">
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <i class="fas fa-stroopwafel fa-2x center"></i>
+                                </h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="puntos_contrincante">
+                    <div *ngIf="multijugador">
+                        Puntos: {{jugador2.puntos}} Llevadas: {{jugador2.llevadas.length}}
+                    </div>
+                    <div *ngIf="!multijugador">
+                        Puntos: {{pcService.puntos}} Llevadas: {{pcService.llevadas.length}}
+                    </div>
+
+                </div>
+                <div class="puntos_jugador">
+                    Puntos: {{jugadorService.puntos}} Llevadas: {{jugadorService.llevadas.length}}
+                </div>
+                <!--Logo-->
+                <div class="row center">
+                    <div class="col-auto">
+                        <h5 class="card-title"><i class="fas fa-club fa-lg"></i><i class="fas fa-spade fa-sm"> <i class="fas fa-diamond fa-xs"></i></i>
+                        </h5>
+                    </div>
+                </div>
+                <!--Jugador-->
+                <div class="row center">
+                    <div class="col">
+                        <button [ngClass]="{'disabled':!((jugadorService.disabledLanzar==false)&&(turno==true))}" (click)="lanzarCarta()" class="btn btn-danger color-boton-mesa boton shadow-none lanzar"><div class="">Lanzar</div></button>
+                    </div>
+                </div>
+                <div class="row abajo g-2">
+                    <div *ngFor="let carta of manos[0]; let i=index" class="col">
+                        <img [ngClass]="{'seleccionado':jugadorService.sel[i]}" (click)="jugadorService.seleccionarCarta(i)" class="carta sinFondo" [src]="carta.image">
+                    </div>
+                </div>
+                <!--Llevadas del jugador-->
+                <div *ngFor="let carta of llevadas;let i=index" class="row llevadas" [ngStyle]="llevadas[i]">
+                    <div class="col">
+                        <img class="sinFondo carta" [src]="carta.image">
+                    </div>
+                </div>
+                <!--Puntos del jugador-->
+                <div *ngFor="let carta of cartas_puntos;let i=index" class="row puntos" [ngStyle]="cartas_puntos[i]">
+                    <div class="col">
+                        <img *ngIf="!carta.volteado" class="carta sinFondo" [src]="carta.image">
+                        <div *ngIf="carta.volteado" class="card carta">
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <i class="fas fa-stroopwafel fa-2x center"></i>
+                                </h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <i *ngIf="cargando" [ngClass]="{'fa-spin':cargando}" class="carga fas fa-spinner"></i>
+                <!--Naipe-->
+                <div *ngFor="let carta of naipesReversa;let i=index" class="row naipe" [ngStyle]="naipesReversa[i]">
+                    <div class="col">
+                        <div class="card carta">
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <i class="fas fa-stroopwafel fa-2x center"></i>
+                                </h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!--Mesa-->
+                <div *ngFor="let carta of mesa;let i=index" class="row carta-mesa" [ngStyle]="mesa[i]">
+                    <div class="col">
+                        <img [ngClass]="{'seleccionado':jugadorService.sel_mesa[i]}" class="carta sinFondo" [src]="carta.image" (click)="seleccionarCartaMesa(i)">
+                    </div>
+                </div>
+                <!-- Borrar, pruebas! -->
+                <div *ngIf="multijugador" class="div-micro">
+                    <img *ngIf="!microfono" (click)="transmitir()" class="microfono" [src]="img_microfono">
+                    <img *ngIf="microfono" (click)="transmitir()" class="microfono" [src]="img_microfono_abierto">
+                    <p>{{jugadorService.nombre}}</p>
+                </div>
+                <!--     <div *ngIf="multijugador">
+                    <div class="row nickname1">
+                        <div class="col">
+                            <p>{{jugador2.nombre}}</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col nickname2">
+                            <p>{{jugadorService.nombre}}</p>
+                        </div>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col">
+        <div *ngIf="jugadorService.notificacion_info.en" class="alert alert-warning" role="alert">
+            {{jugadorService.notificacion_info.mensaje}}
+        </div>
+    </div>
+</div>

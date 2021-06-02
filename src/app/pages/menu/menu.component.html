@@ -1,0 +1,62 @@
+<div class="row justify-content-center center">
+    <div class="col-auto animate__animated animate__bounceIn">
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <div class="row justify-content-center mb-3">
+                    <div class="col-auto">
+                        <h5 class="card-title"><i class="fas fa-club fa-lg"></i><i class="fas fa-spade fa-sm"> <i class="fas fa-diamond fa-xs"></i></i> Cuarenta
+                        </h5>
+                    </div>
+                </div>
+                <div class="row justify-content-center mb-3">
+                    <div class="col-auto">
+                        <form *ngIf="(sel[1])">
+                            <input type="text" [(ngModel)]="usuario" class="Form control" name="usuario" placeholder="Ingrese nick/nombre" autofocus autocomplete="off">
+                        </form>
+                    </div>
+                </div>
+                <div class="row justify-content-center g-0">
+                    <div [ngClass]="{'marcado':sel[0]}" (click)="seleccion(0)" class="col-auto">
+                        <div class="card-text">
+                            <img class="selector" src="assets/boton1.png" alt="" srcset="">
+                            <br>
+                            <div class="row justify-content-center">
+                                <div class="col-auto">
+                                    PC
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div [ngClass]="{'marcado':sel[1]}" (click)="seleccion(1)" class="col-auto">
+                        <div class="card-text">
+                            <img class="selector" src="assets/boton2.png" alt="" srcset="">
+                            <br>
+                            <div class="row justify-content-center">
+                                <div class="col-auto">
+                                    VS
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div [ngClass]="{'marcado':sel[2]}" (click)="seleccion(2)" class="col-auto">
+                        <div class="card-text">
+                            <img class="selector" src="assets/boton3.png" alt="" srcset="">
+                            <br>
+                            <div class="row justify-content-center">
+                                <div class="col-auto">
+                                    <i class="fas fa-cog"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row justify-content-center mt-3 mb-2">
+                    <div class="col-auto">
+                        <button (click)="entrar()" [ngClass]="{'disabled':!en}" class="btn btn-primary justify-content-center color-boton">{{boton}}</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

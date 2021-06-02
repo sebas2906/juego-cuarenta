@@ -1,0 +1,348 @@
+/* You can add global styles to this file, and also import other style files */
+
+
+/*Variables*/
+
+:root {
+    --margen_bajo: 110px;
+    /*Margen del borde superior de la carta de .abajo*/
+    --margen_lados_movil: 5%;
+    --white: #ffffff;
+}
+
+
+/*desktop */
+
+.mesa {
+    width: 1200px;
+    height: 550px;
+    color: #4DFFFF;
+    /*B*/
+    background-color: #f7003e;
+    /*D*/
+}
+
+.arriba {
+    margin: 0;
+    position: absolute;
+    top: 1%;
+    left: 1.6%;
+}
+
+.abajo {
+    margin: 0;
+    position: absolute;
+    top: calc(100% - var(--margen_bajo));
+    /*75%*/
+    left: 45%;
+}
+
+.center {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.color-texto {
+    color: #268080;
+}
+
+.color-principal {
+    background-color: #00FFFF;
+    /*C*/
+}
+
+.color-boton {
+    background-color: #008080 !important;
+    border: #016d6d !important;
+    /*A*/
+}
+
+.boton:hover {
+    color: #268080;
+    /*C*/
+}
+
+.color-boton-mesa {
+    background-color: #00CCCC !important;
+    border: #38bbbb !important;
+}
+
+.carta {
+    /*E*/
+    background-color: #00CCCC;
+    /* border: #00a1a1 !important;*/
+    padding: 0px;
+    width: 65px;
+    /*70*/
+    height: 95px;
+    /*100*/
+    /* -webkit-box-shadow: 5px 6px 5px -1px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 5px 6px 5px -1px rgba(0, 0, 0, 0.75);
+    box-shadow: 5px 6px 5px -1px rgba(0, 0, 0, 0.75); */
+}
+
+.mini {
+    /*E*/
+    background-color: #00CCCC;
+    /* border: #00a1a1 !important;*/
+    padding: 0px;
+    width: 40px;
+    /*70*/
+    height: 65px;
+    /*100*/
+    /* -webkit-box-shadow: 5px 6px 5px -1px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 5px 6px 5px -1px rgba(0, 0, 0, 0.75);
+    box-shadow: 5px 6px 5px -1px rgba(0, 0, 0, 0.75); */
+}
+
+.marcado {
+    background-color: #00CCCC;
+    /*E*/
+}
+
+.carga {
+    margin: 0;
+    position: absolute;
+    top: 1%;
+    left: 0.5%;
+    /*-ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);*/
+}
+
+.img {
+    width: 100px;
+    margin: 0;
+    position: absolute;
+    top: 40%;
+    left: 40%;
+}
+
+.llevadasPC {
+    margin: 0;
+    position: absolute;
+    top: 3%;
+    left: 50%;
+}
+
+.llevadas {
+    margin: 0;
+    position: absolute;
+    top: 75%;
+    left: 1%;
+}
+
+.sinFondo {
+    background-color: transparent !important;
+}
+
+.puntosPC {
+    margin: 0;
+    position: absolute;
+    top: 3%;
+    left: 70%;
+}
+
+.puntos {
+    margin: 0;
+    position: absolute;
+    top: 75%;
+    left: 3%;
+}
+
+.naipe {
+    margin: 0;
+    position: absolute;
+    top: 30%;
+    left: 70%;
+}
+
+.selector {
+    padding: 0px;
+    width: 55px;
+}
+
+.seleccionado {
+    -webkit-box-shadow: 5px 6px 5px -1px rgb(77, 255, 255);
+    -moz-box-shadow: 5px 6px 5px -1px rgb(77, 255, 255);
+    box-shadow: 5px 6px 5px -1px rgb(77, 255, 255);
+}
+
+.carta-mesa {
+    margin: 0;
+    position: absolute;
+    top: 30%;
+    left: 50%;
+}
+
+.lanzar {
+    margin: 0;
+    padding: 0px;
+    width: 800px;
+    height: 350px;
+    background: transparent!important;
+    border: none !important;
+    font-size: 0!important;
+}
+
+.nickname1 {
+    top: 2%;
+    left: 45%;
+    position: absolute;
+}
+
+.nickname2 {
+    top: 95%;
+    left: 87%;
+    position: absolute;
+}
+
+.microfono {
+    width: 45px;
+}
+
+.div-micro {
+    top: 81%;
+    left: 91%;
+    position: absolute;
+}
+
+.puntos_contrincante {
+    color: transparent;
+}
+
+.puntos_jugador {
+    color: transparent;
+}
+
+
+/**********************************************/
+
+
+/* @media all and (max-width: 1200px) {
+    .mesa {
+        width: 10px;
+        height: 10px;
+        color: #4DFFFF; */
+
+
+/*B*/
+
+
+/* background-color: #0400f7; */
+
+
+/*D*/
+
+
+/*     }
+} */
+
+
+/* tablet */
+
+
+/* @media all and (max-width: 1024px) {
+    .state-indicator {
+        z-index: 3;
+    }
+}
+ */
+
+
+/* mobile phone */
+
+@media all and (max-width: 768px) {
+    .mesa {
+        width: 350px;
+        height: 600px;
+        color: #061a88;
+        /*B*/
+        background-color: #33ff00;
+        /*D*/
+    }
+    .position {
+        position: absolute;
+    }
+    .arriba {
+        left: var(--margen_lados_movil);
+    }
+    .abajo {
+        left: var(--margen_lados_movil);
+    }
+    .lanzar {
+        width: 700px;
+        height: 400px;
+    }
+    .puntos_contrincante {
+        all: unset;
+        /*reinicia las propiedades*/
+        margin: 0;
+        position: absolute;
+        top: 1%;
+        left: 30%;
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+    }
+    .puntos_jugador {
+        all: unset;
+        margin: 0;
+        position: absolute;
+        top: 98.7%;
+        left: 25%;
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+    }
+    .puntosPC {
+        all: unset;
+        display: none;
+    }
+    .puntos {
+        all: unset;
+        display: none;
+    }
+    .llevadas {
+        all: unset;
+        display: none;
+    }
+    .llevadasPC {
+        all: unset;
+        display: none;
+    }
+    .carta {
+        width: 55px;
+        /*70*/
+        height: 85px;
+        /*100*/
+        /* -webkit-box-shadow: 5px 6px 5px -1px rgba(0, 0, 0, 0.75);
+        -moz-box-shadow: 5px 6px 5px -1px rgba(0, 0, 0, 0.75);
+        box-shadow: 5px 6px 5px -1px rgba(0, 0, 0, 0.75); */
+    }
+    /*Multiplayer*/
+    .nickname1 {
+        top: 2%;
+        left: 45%;
+        position: absolute;
+    }
+    .nickname2 {
+        top: 95%;
+        left: 87%;
+        position: absolute;
+    }
+    .div-micro {
+        top: 70%;
+        left: 85%;
+    }
+}
+
+
+/*colores:
+ -A->#008080
+ -B->#4DFFFF
+ -C->#00FFFF
+ -D->#268080
+ -E->#00CCCC
+*/

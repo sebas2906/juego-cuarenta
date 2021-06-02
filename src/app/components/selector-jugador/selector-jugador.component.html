@@ -1,0 +1,59 @@
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog" [ngClass]="{'show':habilitar_selector}">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Selecciona un contrincante</h4>
+            </div>
+            <div class="modal-body">
+                <ul *ngFor="let usuario of usuarios" class="list-group">
+                    <li [ngClass]="{'seleccionado':usuario.seleccionado}" (click)="seleccion(usuario.nombre)" class="list-group-item m-1">{{usuario.nombre}}</li>
+                </ul>
+            </div>
+            <div class="modal-footer">
+                <div class="row">
+                    <div class="col-auto">
+                        <i *ngIf="cargando" [ngClass]="{'fa-spin':cargando}" class="fas fa-spinner"></i>
+                    </div>
+                    <div class="col-auto">
+                        <p *ngIf="estado.length">{{estado}}</p>
+                    </div>
+                    <div class="col-auto">
+                        <button (click)="enviar()" type="button" class="btn btn-default">Comenzar</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog" [ngClass]="{'show':habilitar_solicitud}">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Solicitud de juego</h4>
+            </div>
+            <div class="modal-body">
+                <p>El jugador {{emisor}} te ha invitado a unirte a su partida. Quieres unirte?</p>
+            </div>
+            <div class="modal-footer">
+                <div class="row">
+                    <div class="col-auto">
+                        <button (click)="aceptar()" type="button" class="btn btn-default">Aceptar</button>
+                    </div>
+                    <div class="col-auto">
+                        <button (click)="ignorar()" type="button" class="btn btn-default">Ignorar</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>
