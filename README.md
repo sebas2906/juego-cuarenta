@@ -1,5 +1,9 @@
 # Cuarenta
 
+El juego de 40 es un popular juego de Ecuador, en este juego puedes jugar solo o con un amigo.
+Para el modo multijugador se realizó con un server remoto con conexión por Sockets.
+
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.2.
 
 ## Development server
